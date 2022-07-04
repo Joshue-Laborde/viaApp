@@ -1,0 +1,33 @@
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <h1>Registro</h1>
+    <!-- Login Form -->
+    <form [formGroup]="loginForm" (ngSubmit)="onRegister(loginForm.value)">
+      <input type="text" id="login" class="fadeIn second"  placeholder="Usuario" formControlName="usuario" required="required">
+      <span class="form-text text-danger"
+            *ngIf="campoValido('usuario')">
+            Este campo debe tener al menos 5 y máximo 10 caracteres
+      </span>
+      <input type="email" id="correo" class="fadeIn third"  placeholder="Correo" formControlName="correo" required="required">
+      <span class="form-text text-danger"
+            *ngIf="campoValido('correo')">
+            Campo requerido
+      </span>
+      <input type="password" class="fadeIn third"  placeholder="Contraseña" formControlName="clave" required="required">
+      <input type="hidden"  formControlName="rol">
+      <span class="form-text text-danger"
+            *ngIf="campoValido('clave')">
+            Este campo debe tener al menos 8 caracteres
+      </span>
+      <input type="submit" class="fadeIn fourth" value="Log In">
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      Ya tienes cuenta? <a class="underlineHover" routerLink="/login"> Inicia sesión!</a>
+    </div>
+
+  </div>
+</div>
+

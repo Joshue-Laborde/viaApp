@@ -1,0 +1,29 @@
+<app-dashboard></app-dashboard>
+<br />
+
+<div class="row" infinite-scroll>
+  <div class="col-xs-6 col-sm-6 col-md-3 mb-2" *ngFor="let item of empleados">
+    <div class="card" style="width: 300px">
+      <img class="card-img-top rounded" src="{{ item.image }}" />
+      <div class="card-body">
+        <h4 class="card-title">{{ item.firstName }} {{ item.lastName }}</h4>
+        <p class="card-text">{{ item.email }}</p>
+        <a class="btn btn-primary" [routerLink]="['../ver-empleado',item.id]">Ver empleado</a>
+      </div>
+    </div>
+    <div
+      class="col-xs-12 col-sm-12 col-md-12 mt-5 container-notFound"
+      *ngIf="empleados.length <= 0"
+    >
+      <p>No hay productos.......</p>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="card mb-4 text-white bg-dark">
+     <img class="card-img-top" src="../../../assets/productos/pantalon.jpg" alt="Card image cap">
+     <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="http://www.jquery2dotnet.com/" class="btn btn-outline-light btn-sm">Go somewhere</a>
+     </div> -->

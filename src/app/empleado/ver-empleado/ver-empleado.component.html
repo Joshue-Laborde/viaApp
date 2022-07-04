@@ -1,0 +1,44 @@
+<app-dashboard></app-dashboard>
+<br />
+
+
+<div *ngIf="!empleado; else divProd"
+class="alert alert-info">
+    Espere por favor...
+</div>
+
+<ng-template #divProd>
+  <form>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label pr-2" >Nombre:</label>
+      <div class="col-sm-4">
+        <input type="text"  class="form-control" [(ngModel)]="empleado.firstName" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label" >Apellido:</label>
+      <div class="col-sm-4">
+        <input type="text"  class="form-control" [(ngModel)]="empleado.lastName" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Correo:</label>
+      <div class="col-sm-4">
+        <input type="email" class="form-control" [(ngModel)]="empleado.email" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Url imagen:</label>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" [(ngModel)]="empleado.image" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+
+    <div class="mx-auto " style="width: 200px;">
+      <button type="submit" class="btn btn-success pt-2 btn-inline">Actualizar</button>
+      <a (click)="onGoBack()" class="btn btn-primary pt-2 btn-inline ml-4" style="color: white;">Volver</a>
+    </div>
+  </form>
+
+</ng-template>
